@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Sensor Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="https://github.com/bh-shivansh/machinelearning-sensor" class="top-left-link" target="_blank">GitHub Repository Link</a>
+        <h1>Machine Learning Sensor Data</h1>
+        <div class="input-group">
+            <label for="footfall">Footfall</label>
+            <input type="number" id="footfall" placeholder="Enter footfall">
+        </div>
+        <div class="input-group">
+            <label for="tempMode">Temperature Mode</label>
+            <input type="number" id="tempMode" placeholder="Enter temperature mode">
+        </div>
+        <div class="input-group">
+            <label for="aq">AQ</label>
+            <input type="number" id="aq" placeholder="Enter AQ">
+        </div>
+        <div class="input-group">
+            <label for="uss">USS</label>
+            <input type="number" id="uss" placeholder="Enter USS">
+        </div>
+        <div class="input-group">
+            <label for="cs">CS</label>
+            <input type="number" id="cs" placeholder="Enter CS">
+        </div>
+        <div class="input-group">
+            <label for="voc">VOC</label>
+            <input type="number" id="voc" placeholder="Enter VOC">
+        </div>
+        <div class="input-group">
+            <label for="rp">RP</label>
+            <input type="number" id="rp" placeholder="Enter RP">
+        </div>
+        <div class="input-group">
+            <label for="ip">IP</label>
+            <input type="number" id="ip" placeholder="Enter IP">
+        </div>
+        <div class="input-group">
+            <label for="temperature">Temperature</label>
+            <input type="number" id="temperature" placeholder="Enter temperature">
+        </div>
+        <div class="button-group">
+            <button onclick="predict()">Predict</button>
+        </div>
+        <div id="result" class="result" style="display: none;">
+            <h2>Prediction</h2>
+            <p id="prediction"></p>
+        </div>
+    </div>
+
+    <script>
+        function predict() {
+            // Get the input values
+            const footfall = document.getElementById('footfall').value;
+            const tempMode = document.getElementById('tempMode').value;
+            const aq = document.getElementById('aq').value;
+            const uss = document.getElementById('uss').value;
+            const cs = document.getElementById('cs').value;
+            const voc = document.getElementById('voc').value;
+            const rp = document.getElementById('rp').value;
+            const ip = document.getElementById('ip').value;
+            const temperature = document.getElementById('temperature').value;
+
+            // Mock prediction logic (replace with actual model prediction logic)
+            const prediction = (parseFloat(footfall) + parseFloat(tempMode) + parseFloat(aq) +
+                                parseFloat(uss) + parseFloat(cs) + parseFloat(voc) +
+                                parseFloat(rp) + parseFloat(ip) + parseFloat(temperature)) / 9;
+
+            // Display the prediction
+            document.getElementById('prediction').innerText = `Predicted Value: ${prediction.toFixed(2)}`;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
